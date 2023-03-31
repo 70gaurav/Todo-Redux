@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch , useSelector } from 'react-redux'
-import { inputhandler,submithandler ,deletehandler ,edithandler } from './Feature/todoSlice'
+import { inputhandler,submithandler ,deletehandler ,edithandler ,indexhandler  } from './Feature/todoSlice'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import CreateIcon from '@mui/icons-material/Create';
 
@@ -19,7 +19,8 @@ function Todo() {
     }
     function edittask (e,task,index){
         e.preventDefault()
-        dispatch(edithandler(task,index))
+        dispatch(edithandler(task))
+        dispatch(indexhandler(index))
     }
   return (
     <div >

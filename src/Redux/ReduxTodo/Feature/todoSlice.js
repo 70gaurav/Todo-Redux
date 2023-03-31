@@ -14,8 +14,20 @@ const todoSlice = createSlice({
     },
     
     submithandler: (state) => {
-        state.tasks = [...state.tasks,state.value]
-        state.value = ""
+        if(state.value.length > 1){
+            if(state.value.length > 0 && state.edit === false){
+                state.tasks = [...state.tasks,state.value]
+                state.value = ""
+             }
+             else{
+                state.tasks[state.edit] = state.value
+                state.value = ""
+                state.edit = false
+                 }
+        }
+        else{
+            alert("input can't be empty")
+        }
         
     },
     deletehandler: (state,action) => {
@@ -25,10 +37,14 @@ const todoSlice = createSlice({
     },
     edithandler: (state,action) => {
         state.value = action.payload
+    },
+    indexhandler: (state,action) => {
+        state.edit = action.payload
     }
+        
     }
 
 
 })
-export const {inputhandler , submithandler , deletehandler , edithandler } = todoSlice.actions
+export const {inputhandler , submithandler , deletehandler , edithandler ,indexhandler  } = todoSlice.actions
 export default todoSlice.reducer
