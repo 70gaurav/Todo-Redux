@@ -3,6 +3,7 @@ import { useDispatch , useSelector } from 'react-redux'
 import { inputhandler,submithandler ,deletehandler ,edithandler ,indexhandler  } from './Feature/todoSlice'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import CreateIcon from '@mui/icons-material/Create';
+import './todo.css'
 
 
 function Todo() {
@@ -23,7 +24,8 @@ function Todo() {
         dispatch(indexhandler(index))
     }
   return (
-    <div >
+    <div className='wrapper'>
+    <div className='todo'>
         <h1>Todo List</h1>
         <form onSubmit={ submission}>
             <input type="text" placeholder='Enter Here' value={inputvalue.value}onChange={(e) => dispatch(inputhandler(e.target.value))} autoFocus></input>
@@ -33,7 +35,7 @@ function Todo() {
             {
                 inputvalue.tasks.map((task, index) => {
                     return(
-                        <div key={index}>
+                        <div className='list' key={index}>
                         <li>{task} <a onClick={(e)=>{deletetask(e,index)}}><DeleteForeverIcon /></a> <a onClick={(e) => {edittask(e,task,index)}}><CreateIcon/></a></li>
                         </div>
                     )
@@ -41,6 +43,7 @@ function Todo() {
 
             }
         </ul>
+    </div>
     </div>
   )
 }

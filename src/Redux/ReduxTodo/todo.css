@@ -1,0 +1,28 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.wrapper{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #a8ff78, #78ffd6);
+}
+.todo{
+    background: linear-gradient(to right, #2193b0, #6dd5ed);
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px ;
+}
+.todo button{
+    background-color: #a8ff78;
+    padding: 0.5rem;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px;
+}
+input{
+    height: 40px;
+    margin: 0.5rem;
+}
